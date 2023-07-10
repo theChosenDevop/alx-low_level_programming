@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "main.h"
+#include <stdlib.h>
 
 /**
  * main - entry point
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		multi = 1;
 		while (*(++argv))
 		{
-			multi *= _atoi(*argv);
+			multi *= atoi(*argv);
 		}
 	}
 	printf("%d\n", multi);
