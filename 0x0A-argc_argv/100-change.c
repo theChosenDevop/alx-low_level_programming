@@ -10,11 +10,12 @@
 
 int main(int argc, char **argv)
 {
-	int numOfCoins = 0;
-	int cents = atoi(*(argv + 1));
+	int numOfCoins = 0, cents = 0;
 
 	if (argc == 2)
 	{
+		cents = atoi(argv[1]);
+
 		while (cents > 0)
 		{
 		if (cents >= 25)
