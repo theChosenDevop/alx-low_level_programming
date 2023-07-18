@@ -1,5 +1,5 @@
-#ifndef 0BJECT_LIKE_MACRO
-#define 0BJECT_LIKE_MACRO
+#ifndef OBJECT_LIKE_MACRO
+#define OBJECT_LIKE_MACRO
 
 /**
  * File: 0-object_like_macro
