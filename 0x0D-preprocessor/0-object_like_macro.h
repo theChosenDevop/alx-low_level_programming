@@ -2,7 +2,7 @@
 #define 0BJECT_LIKE_MACRO
 
 /**
- * File: 0-objec_like_macro.h
+ * File: 0-object_like_macro
  * Desc: assign value of 1024 to macro SIZE
  */
 
