@@ -55,4 +55,4 @@
 	- *You are allowed to use `read` a maximum of 2 times at runtime*
 	- *You are allowed to have as many functions as you want in your source file*
 	- *You are allowed to use `printf`*
-	###man `elf`, `readelf`
+	### man `elf`, `readelf`
