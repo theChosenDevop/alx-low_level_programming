@@ -10,10 +10,8 @@ int main(int ac, char **av)
 {
 	int src, dest, close_src, close_dest, wBytes, rBytes;
 	char buf[1024];
-	mode_t mode;
 
 	rBytes = 1024;
-	mode = S_IRUSR | S_IWUSR;
 
 	if (ac != 3)
 	{
@@ -24,7 +22,7 @@ int main(int ac, char **av)
 	src = open(av[1], O_RDONLY);
 	error_check(src, -1, av[1], 'O');
 
-	dest = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	dest = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_check(dest, -1, av[2], 'O');
 
 	while (rBytes == 1024)
