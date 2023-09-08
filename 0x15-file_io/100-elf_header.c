@@ -14,7 +14,8 @@ void print_version(unsigned char *e_ident);
 void print_abi_version(unsigned char *e_ident);
 void print_os_abi(unsigned char *e_ident);
 void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry_point_address(unsigned long int e_entry, unsigned char *e_ident);
+void print_entry_point_address(unsigned long int e_entry,
+		unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
@@ -79,7 +80,11 @@ void check_elf(unsigned char *e_ident)
 
 	while (i < 4)
 	{
-		if (e_ident[i] != 127 && e_ident[i] != 'E' && e_ident[i] != 'L' && e_ident[i] != 'F')
+		if (
+				e_ident[i] != 127
+				&& e_ident[i] != 'E'
+				&& e_ident[i] != 'L'
+				&& e_ident[i] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF File\n");
 			exit(98);
@@ -168,12 +173,13 @@ void print_data(unsigned char *e_ident)
 
 /**
  * print_version - print the version from array of Elf Header
- * @e_ident: pointer to array of Elf header containing class, data, version and others
+ * @e_ident: pointer to array of Elf header containing class,
+ * data, version and others
  * Return: void
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                           %d",e_ident[EI_VERSION]);
+	printf("  Version:                           %d", e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
@@ -188,7 +194,8 @@ void print_version(unsigned char *e_ident)
 
 /**
  * print_os_abi - prints OS/ABI from array of Elf Header
- * @e_ident: pointer to array of Elf header containing class, data, version, os/abi and others
+ * @e_ident: pointer to array of Elf header containing class,
+ * data, version, os/abi and others
  * Return: void
  */
 void print_os_abi(unsigned char *e_ident)
@@ -233,13 +240,15 @@ void print_os_abi(unsigned char *e_ident)
 }
 
 /**
- * print_abi_version - prints the abi version of Elf header from an array stored in e_ident
- * @e_ident: pointer to an array of Elf header containing data, class, version, os/abi, abi version and others
+ * print_abi_version - prints the abi version of Elf header
+ * from an array stored in e_ident
+ * @e_ident: pointer to an array of Elf header containing data,
+ * class, version, os/abi, abi version and others
  * Return: void
  */
 void print_abi_version(unsigned char *e_ident)
 {
-	printf("  ABI Version:                       %d\n",e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -285,13 +294,15 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * @e_indent: A pointer to an array of Elf header
  * Return: void
  */
-void print_entry_point_address(unsigned long int e_entry, unsigned char *e_ident)
+void print_entry_point_address(unsigned long int e_entry,
+		unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
+		e_entry = ((e_entry << 8)
+				& 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 
